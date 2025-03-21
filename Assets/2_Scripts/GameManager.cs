@@ -60,8 +60,7 @@ public class GameManager : MonoBehaviour
         UIManager.Instace.UIStatus.SetAttackDamage(Player.attackdamage);
         UIManager.Instace.UIStatus.SetDefence(Player.defence);
         UIManager.Instace.UIStatus.SetHealth(Player.health);
-        UIManager.Instace.UIStatus.SetCritical(Player.critical);
-        
+        UIManager.Instace.UIStatus.SetCritical(Player.critical);        
     }
 
 }
