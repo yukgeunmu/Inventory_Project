@@ -20,4 +20,9 @@ public class UIInventory : MonoBehaviour
     public TextMeshProUGUI selectedDescription;
     public TextMeshProUGUI selectedStatName;
     public TextMeshProUGUI selectedStatValue;
+
+    private void Start()
+    {
+        backButton.onClick.AddListener(UIManager.Instace.UIMainMenu.OpenMainMenu);
+    }
 }

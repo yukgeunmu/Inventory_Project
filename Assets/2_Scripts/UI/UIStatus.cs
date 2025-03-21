@@ -11,6 +11,11 @@ public class UIStatus : MonoBehaviour
     public TextMeshProUGUI healthValueText;
     public TextMeshProUGUI criticalValueText;
 
-    public Button statusBackButton;
-  
+    public Button backButton;
+
+    private void Start()
+    {
+       backButton.onClick.AddListener(UIManager.Instace.UIMainMenu.OpenMainMenu);
+    }
+
 }
