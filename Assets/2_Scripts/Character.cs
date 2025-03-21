@@ -21,7 +21,7 @@ public class Character : MonoBehaviour
     public float defence { get; private set; }
     public float health { get; private set; }
     public float critical { get; private set; }
-    public int gold;
+    public int gold { get; private set; }
 
     public Character(JobType job, string _characterName, int _level, float _exp, float _maxExp, float _attackdamage, float _defence, float _health, float _critical, int _gold)
     {

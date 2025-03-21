@@ -602,6 +602,7 @@ GameObject:
   - component: {fileID: 182878078}
   - component: {fileID: 182878077}
   - component: {fileID: 182878081}
+  - component: {fileID: 182878082}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -709,7 +710,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76eb9ff4eb532604088f3f3f1ed8d9a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 0
+--- !u!114 &182878082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182878076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76eb9ff4eb532604088f3f3f1ed8d9a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &184719927
 GameObject:
   m_ObjectHideFlags: 0
@@ -7118,7 +7130,7 @@ MonoBehaviour:
   jobText: {fileID: 228964567}
   nameText: {fileID: 1972675477}
   levelText: {fileID: 1984312051}
-  expText: {fileID: 0}
+  expText: {fileID: 1730182781}
   goldText: {fileID: 1170032950}
   expGage: {fileID: 781629849}
   statusButton: {fileID: 1651591849}
