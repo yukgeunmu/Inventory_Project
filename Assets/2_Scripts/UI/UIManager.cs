@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
         uIMainMenu = GetComponentInChildren<UIMainMenu>();
         uIStatus = GetComponentInChildren<UIStatus>(true);
         uIInventory = GetComponentInChildren<UIInventory>(true);
+
+        GameManager.Instance.uIManager = this;
     }
 
 }

@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIStatus : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TextMeshProUGUI attackValueText;
+    public TextMeshProUGUI defenceValueText;
+    public TextMeshProUGUI healthValueText;
+    public TextMeshProUGUI criticalValueText;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Button statusBackButton;
+  
 }

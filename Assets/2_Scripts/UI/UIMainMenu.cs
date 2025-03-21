@@ -1,18 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIMainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public TextMeshProUGUI jobText;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI currentExpText;
+    public TextMeshProUGUI totalExpText;
+    public TextMeshProUGUI goldText;
+
+    public Button statusButton;
+    public Button inventoryButton;
+
+
+
+
+    public void OpenMainMenu()
     {
-        
+
+    }
+    
+    public void OpenStatus()
+    {
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OpenInventory()
     {
-        
+
     }
+
 }

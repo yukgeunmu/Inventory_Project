@@ -33,8 +33,6 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-
-        uIManager = FindObjectOfType<UIManager>();
     }
 
 }

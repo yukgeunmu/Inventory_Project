@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIInventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public ItemSlot[] slots;
+    public Transform slotPanel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public TextMeshProUGUI currentSlot;
+    public TextMeshProUGUI totalSlot;
+    public Button backButton;
+
+    [Header("Selected Item")]
+    private ItemSlot selectedItem;
+    private int selectedItemIndex;
+    public TextMeshProUGUI selectedItemName;
+    public TextMeshProUGUI selectedDescription;
+    public TextMeshProUGUI selectedStatName;
+    public TextMeshProUGUI selectedStatValue;
 }
