@@ -57,6 +57,10 @@ public class GameManager : MonoBehaviour
         UIManager.Instace.UIMainMenu.SetLevel(Player.level);
         UIManager.Instace.UIMainMenu.SetExp(Player.exp, Player.maxExp);
         UIManager.Instace.UIMainMenu.SetGold(Player.gold);
+        UIManager.Instace.UIStatus.SetAttackDamage(Player.attackdamage);
+        UIManager.Instace.UIStatus.SetDefence(Player.defence);
+        UIManager.Instace.UIStatus.SetHealth(Player.health);
+        UIManager.Instace.UIStatus.SetCritical(Player.critical);
         
     }
 
