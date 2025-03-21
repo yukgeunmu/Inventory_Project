@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +11,9 @@ public class UIMainMenu : MonoBehaviour
     public TextMeshProUGUI jobText;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI levelText;
-    public TextMeshProUGUI currentExpText;
-    public TextMeshProUGUI totalExpText;
+    public TextMeshProUGUI expText;
     public TextMeshProUGUI goldText;
-    public Slider expGage;
+    public Image expGage;
 
     public Button statusButton;
     public Button inventoryButton;
@@ -30,6 +31,32 @@ public class UIMainMenu : MonoBehaviour
         UIManager.Instace.UIStatus.gameObject.SetActive(false);
         UIManager.Instace.UIInventory.gameObject.SetActive(false);
 
+    }
+
+    public void SetJobType(JobType _jobType)
+    {
+        jobText.text = _jobType.ToString();
+    }
+
+    public void SetName(string _Name)
+    {
+        nameText.text = _Name;
+    }
+
+    public void SetLevel(int level)
+    {
+        levelText.text = level.ToString();
+    }
+
+    public void SetExp(float currentExp, float maxExp)
+    {
+        expText.text = $"{currentExp} / {maxExp}";
+        expGage.fillAmount = currentExp / maxExp;   
+    }
+
+    public void SetGold(int gold)
+    {
+        goldText.text = gold.ToString();
     }
     
     public void OpenStatus()
