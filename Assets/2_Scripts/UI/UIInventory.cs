@@ -15,8 +15,6 @@ public class UIInventory : MonoBehaviour
     public int totalSlot;
     public Button backButton;
 
-    public List<Item> equipItme;
-
     //[Header("Selected Item")]
     //private ItemSlot selectedItem;
     //private int selectedItemIndex;
@@ -50,8 +48,6 @@ public class UIInventory : MonoBehaviour
     {
         foreach(var addItem in items)
         {
-            if(addItem.itemType == ItemType.Equipable) equipItme.Add(addItem);
-
             foreach(var slot in itemSlotList)
             {
                 if(slot.item == null)

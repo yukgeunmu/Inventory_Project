@@ -14,7 +14,6 @@ public class UISlot : MonoBehaviour
     public Outline outline;
 
     public int index;
-    public bool equipped;
     public GameObject equipText;
     public int quantity;
 
@@ -56,14 +55,11 @@ public class UISlot : MonoBehaviour
     {
         if (item == null) return;
 
-        if (inventory.equipItme.Contains(item))
+        if (item.itemType ==  ItemType.Equipable)
         {
             if (GameManager.Instance.player.equipItem == null)
             {
-                outline.enabled = true;
-                equipText.gameObject.SetActive(true);
-                GameManager.Instance.player.equipItem = inventory.itemSlotList[index];
-                GameManager.Instance.player.Equip(item);
+                SelfEquip();
             }
             else if (GameManager.Instance.player.equipItem.index != index)
             {
@@ -71,10 +67,7 @@ public class UISlot : MonoBehaviour
                 GameManager.Instance.player.equipItem.equipText.SetActive(false);
                 GameManager.Instance.player.UnEquip(GameManager.Instance.player.equipItem.item);
 
-                outline.enabled = true;
-                equipText.gameObject.SetActive(true);
-                GameManager.Instance.player.equipItem = inventory.itemSlotList[index];
-                GameManager.Instance.player.Equip(item);
+                SelfEquip();
 
             }
             else
@@ -83,9 +76,17 @@ public class UISlot : MonoBehaviour
                 equipText.gameObject.SetActive(false);
                 GameManager.Instance.player.equipItem = null;
                 GameManager.Instance.player.UnEquip(item);
-            }
-            
+            }          
         }
+    }
+
+    public void SelfEquip()
+    {
+        outline.enabled = true;
+        equipText.gameObject.SetActive(true);
+        GameManager.Instance.player.equipItem = inventory.itemSlotList[index];
+        GameManager.Instance.player.Equip(item);
+
     }
 
 }
