@@ -173,7 +173,7 @@ MonoBehaviour:
   outline: {fileID: 5518560476357118376}
   index: 0
   equipped: 0
-  equipText: {fileID: 1566282757298806965}
+  equipText: {fileID: 8033304315525312028}
   quantity: 0
 --- !u!1 &1547478049029767156
 GameObject:

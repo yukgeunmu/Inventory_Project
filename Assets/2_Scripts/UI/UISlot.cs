@@ -15,7 +15,7 @@ public class UISlot : MonoBehaviour
 
     public int index;
     public bool equipped;
-    public TextMeshProUGUI equipText;
+    public GameObject equipText;
     public int quantity;
 
     private void Awake()
@@ -54,20 +54,38 @@ public class UISlot : MonoBehaviour
 
     public void OnEquip()
     {
-        if(item != null)
+        if (item == null) return;
+
+        if (inventory.equipItme.Contains(item))
         {
-            if (item.itemType == ItemType.Equipable)
+            if (GameManager.Instance.player.equipItem == null)
             {
-                equipped = !equipped;
-                equipText.gameObject.SetActive(equipped);
-                outline.enabled = equipped;
-
-                GameManager.Instance.player.equipItem = item;
-                if (equipped)  GameManager.Instance.player.Equip(item);
-                else  GameManager.Instance.player.UnEquip(item);
+                outline.enabled = true;
+                equipText.gameObject.SetActive(true);
+                GameManager.Instance.player.equipItem = inventory.itemSlotList[index];
+                GameManager.Instance.player.Equip(item);
             }
+            else if (GameManager.Instance.player.equipItem.index != index)
+            {
+                GameManager.Instance.player.equipItem.outline.enabled = false;
+                GameManager.Instance.player.equipItem.equipText.SetActive(false);
+                GameManager.Instance.player.UnEquip(GameManager.Instance.player.equipItem.item);
 
+                outline.enabled = true;
+                equipText.gameObject.SetActive(true);
+                GameManager.Instance.player.equipItem = inventory.itemSlotList[index];
+                GameManager.Instance.player.Equip(item);
+
+            }
+            else
+            {
+                outline.enabled = false;
+                equipText.gameObject.SetActive(false);
+                GameManager.Instance.player.equipItem = null;
+                GameManager.Instance.player.UnEquip(item);
+            }
+            
         }
-
     }
+
 }
