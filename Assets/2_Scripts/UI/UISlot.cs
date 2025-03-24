@@ -11,7 +11,7 @@ public class UISlot : MonoBehaviour
     public Button button;
     public Image icon;
     public TextMeshProUGUI quantityText;
-    private Outline outline;
+    public Outline outline;
 
     public int index;
     public bool equipped;
@@ -20,33 +20,29 @@ public class UISlot : MonoBehaviour
 
     private void Awake()
     {
-        outline = GetComponent<Outline>();
         inventory = GetComponentInParent<UIInventory>();
     }
 
-    private void OnEnable()
-    {
-        outline.enabled = equipped;
-    }
 
     public void SetItem(Item addItem)
     {
-        item = addItem;
-        icon.sprite = addItem.icon;
-        quantity = 1;
-        quantityText.text = quantity.ToString();
-
-        if (outline != null)
+        if (item != null)
         {
-            outline.enabled = equipped;
+            if (item.itemName == addItem.itemName)
+            {
+                quantity++;
+            }
         }
+        else
+        {
+            item = addItem;
+            icon.sprite = addItem.icon;
+            quantity = 1;
+        }
+
+        quantityText.text = quantity.ToString();
     }
 
-    public void SetStack(Item stackItem)
-    {
-        quantity++;
-        quantityText.text = quantity > 1 ? quantity.ToString() : "0";
-    }
 
     public void RefreshUI()
     {
@@ -58,23 +54,20 @@ public class UISlot : MonoBehaviour
 
     public void OnEquip()
     {
-        if(item.itemType == ItemType.Equipable)
+        if(item != null)
         {
-            if (!equipped)
+            if (item.itemType == ItemType.Equipable)
             {
-                equipText.gameObject.SetActive(true);
-                equipped = true;
-                GameManager.Instance.player.Equip(item);
+                equipped = !equipped;
+                equipText.gameObject.SetActive(equipped);
+                outline.enabled = equipped;
 
+                GameManager.Instance.player.equipItem = item;
+                if (equipped)  GameManager.Instance.player.Equip(item);
+                else  GameManager.Instance.player.UnEquip(item);
             }
-            else
-            {
-                equipText.gameObject.SetActive(false);
-                equipped = false;
-                GameManager.Instance.player.UnEquip(item);
-            }
+
         }
+
     }
-
-
 }

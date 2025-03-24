@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 2, y: -2}
+  m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
 --- !u!114 &6001141313940457867
 MonoBehaviour:
@@ -170,6 +170,7 @@ MonoBehaviour:
   button: {fileID: 5698228581428194745}
   icon: {fileID: 4370190947766232541}
   quantityText: {fileID: 8264877833410012688}
+  outline: {fileID: 5518560476357118376}
   index: 0
   equipped: 0
   equipText: {fileID: 1566282757298806965}

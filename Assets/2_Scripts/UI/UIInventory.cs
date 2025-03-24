@@ -59,7 +59,7 @@ public class UIInventory : MonoBehaviour
                 {
                     if(slot.item.itemName == addItem.itemName && addItem.canStack)
                     {
-                        slot.SetStack(addItem);
+                        slot.SetItem(addItem);
                         break;
                     }                  
                 }

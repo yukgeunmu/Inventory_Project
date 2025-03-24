@@ -23,6 +23,7 @@ public class Character : MonoBehaviour
     public float health;
     public float critical;
     public int gold;
+    public Item equipItem;
     public List<Item> inventroy;
 
     private void Awake()
@@ -32,6 +33,7 @@ public class Character : MonoBehaviour
 
     public void Equip(Item item)
     {
+
         for (int i = 0; i < item.statusType.Length; i++)
         {
             switch (item.statusType[i].type)
