@@ -83,4 +83,24 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void Using(Item item)
+    {
+        for (int i = 0; i < item.statusType.Length; i++)
+        {
+            switch(item.statusType[i].type)
+            {
+                case StatusType.Health:
+                    health += item.statusType[i].value;
+                    health = Mathf.Clamp(health, 0f, 100f);
+                    UIManager.Instance.UIStatus.SetHealth(health);
+                    break;
+                case StatusType.Exp:
+                    exp += item.statusType[i].value;
+                    UIManager.Instance.UIMainMenu.SetExp(exp,maxExp);
+                    break;
+            }
+        }
+
+    }
+
 }

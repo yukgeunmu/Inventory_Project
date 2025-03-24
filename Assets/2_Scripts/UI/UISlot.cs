@@ -47,7 +47,7 @@ public class UISlot : MonoBehaviour
     {
         item = null;
         icon.gameObject.SetActive(false);
-        quantityText.text = string.Empty;
+        quantityText.text = "0";
 
     }
 
@@ -77,6 +77,16 @@ public class UISlot : MonoBehaviour
                 GameManager.Instance.player.equipItem = null;
                 GameManager.Instance.player.UnEquip(item);
             }          
+        }
+        else if(item.itemType == ItemType.Consumalbe)
+        {
+            GameManager.Instance.player.Using(item);
+            quantity--;
+
+            if(quantity <= 0)
+            {
+                RefreshUI();
+            }
         }
     }
 
