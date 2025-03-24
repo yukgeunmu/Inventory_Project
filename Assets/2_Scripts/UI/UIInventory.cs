@@ -23,22 +23,26 @@ public class UIInventory : MonoBehaviour
     //public TextMeshProUGUI selectedStatName;
     //public TextMeshProUGUI selectedStatValue;
 
+
     private void Start()
     {
-        backButton.onClick.AddListener(UIManager.Instace.UIMainMenu.OpenMainMenu);
-
-        InitInventroyUI();
+        backButton.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
     }
 
 
-    private void InitInventroyUI()
+    public void InitInventroyUI()
     {
         slotText.text = $"{currentSlot} / {totalSlot}";
 
+        itemSlotList.Clear();
+
         for(int i = 0; i < totalSlot; i++)
         {
-            itemSlotList.Add(itemSlot);
-            Instantiate(itemSlotList[i], slotPanel.transform);
+            UISlot newSlot =  Instantiate(itemSlot, slotPanel.transform);
+            newSlot.index = i;
+            itemSlotList.Add(newSlot);
+  
+
         }
     }
 }

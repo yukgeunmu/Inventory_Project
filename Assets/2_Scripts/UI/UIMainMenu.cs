@@ -28,8 +28,8 @@ public class UIMainMenu : MonoBehaviour
 
     public void OpenMainMenu()
     {
-        UIManager.Instace.UIStatus.gameObject.SetActive(false);
-        UIManager.Instace.UIInventory.gameObject.SetActive(false);
+        UIManager.Instance.UIStatus.gameObject.SetActive(false);
+        UIManager.Instance.UIInventory.gameObject.SetActive(false);
 
     }
 
@@ -61,12 +61,12 @@ public class UIMainMenu : MonoBehaviour
     
     public void OpenStatus()
     {
-        UIManager.Instace.UIStatus.gameObject.SetActive(true);
+        UIManager.Instance.UIStatus.gameObject.SetActive(true);
     }
 
     public void OpenInventory()
     {
-        UIManager.Instace.UIInventory.gameObject.SetActive(true);
+        UIManager.Instance.UIInventory.gameObject.SetActive(true);
     }
 
 }
