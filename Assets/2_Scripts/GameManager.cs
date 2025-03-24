@@ -78,8 +78,7 @@ public class GameManager : MonoBehaviour
             new Item("Health Potion", "HP 50", ItemType.Consumalbe, sprite[0], true, 100, HpPotion),
             new Item("Health Potion", "HP 50", ItemType.Consumalbe, sprite[0], true, 100, HpPotion),
             new Item("Health Potion", "HP 50", ItemType.Consumalbe, sprite[0], true, 100, HpPotion),
-            new Item("Iron Sword", "Weapon", ItemType.Equipable, sprite[1], false, 1, swordStatus),
-             new Item("Wiar Staff", "Staff", ItemType.Equipable, sprite[2], false, 1, staffStatus)
+            new Item("Iron Sword", "Weapon", ItemType.Equipable, sprite[1], false, 1, swordStatus)
 
         };
 
