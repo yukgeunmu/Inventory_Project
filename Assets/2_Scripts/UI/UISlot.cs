@@ -7,19 +7,6 @@ using UnityEngine.UI;
 public class UISlot : MonoBehaviour
 {
     public Item item;
-
-    [Header("Info")]
-    public string itemName = null;
-    public string description = null;
-    public ItemType itemType;
-
-    [Header("Stacking")]
-    public bool canStack;
-    public int MaxStackAmount;
-
-    [Header("StatusType")]
-    public ItemDataStatus[] statusType;
-
     public UIInventory inventory;
     public Button button;
     public Image icon;
@@ -45,21 +32,20 @@ public class UISlot : MonoBehaviour
     public void SetItem(Item addItem)
     {
         item = addItem;
-        itemName = item.itemName;
-        description = item.description;
-        itemType = item.itemType;
-        canStack = item.canStack;
-        MaxStackAmount = item.MaxStackAmount;
-        statusType = item.statusType;
         icon.sprite = addItem.icon;
         quantity = 1;
-
-        quantityText.text = quantity >= 1 ? quantity.ToString() : "0";
+        quantityText.text = quantity.ToString();
 
         if (outline != null)
         {
             outline.enabled = equipped;
         }
+    }
+
+    public void SetStack(Item stackItem)
+    {
+        quantity++;
+        quantityText.text = quantity > 1 ? quantity.ToString() : "0";
     }
 
     public void RefreshUI()
@@ -72,20 +58,20 @@ public class UISlot : MonoBehaviour
 
     public void OnEquip()
     {
-        if(itemType == ItemType.Equipable)
+        if(item.itemType == ItemType.Equipable)
         {
             if (!equipped)
             {
                 equipText.gameObject.SetActive(true);
                 equipped = true;
-                GameManager.Instance.Player.Equip(item);
+                GameManager.Instance.player.Equip(item);
 
             }
             else
             {
                 equipText.gameObject.SetActive(false);
                 equipped = false;
-                GameManager.Instance.Player.UnEquip(item);
+                GameManager.Instance.player.UnEquip(item);
             }
         }
     }

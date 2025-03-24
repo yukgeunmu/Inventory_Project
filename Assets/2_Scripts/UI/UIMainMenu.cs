@@ -45,7 +45,7 @@ public class UIMainMenu : MonoBehaviour
 
     public void SetLevel(int level)
     {
-        levelText.text = level.ToString();
+        levelText.text = $"Lv {level}";
     }
 
     public void SetExp(float currentExp, float maxExp)

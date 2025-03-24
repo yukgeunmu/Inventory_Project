@@ -41,8 +41,30 @@ public class UIInventory : MonoBehaviour
             UISlot newSlot =  Instantiate(itemSlot, slotPanel.transform);
             newSlot.index = i;
             itemSlotList.Add(newSlot);
-  
-
         }
+    }
+
+    public void SetInventory(List<Item> items)
+    {
+        foreach(var addItem in items)
+        {
+            foreach(var slot in itemSlotList)
+            {
+                if(slot.item == null)
+                {
+                    slot.SetItem(addItem);
+                    break;
+                }
+                else
+                {
+                    if(slot.item.itemName == addItem.itemName && addItem.canStack)
+                    {
+                        slot.SetStack(addItem);
+                        break;
+                    }                  
+                }
+            }
+        }
+
     }
 }

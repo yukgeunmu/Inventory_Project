@@ -15,7 +15,8 @@ public class UIStatus : MonoBehaviour
 
     private void Start()
     {
-       backButton.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
+       if(backButton != null)
+        backButton.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
     }
 
 

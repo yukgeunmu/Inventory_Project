@@ -27,7 +27,8 @@ public class ItemDataStatus
 }
 
 
-public class Item
+[CreateAssetMenu(fileName = "Item", menuName = "Item/ItemData")]
+public class Item : ScriptableObject
 {
     [Header("Info")]
     public string itemName;
@@ -41,17 +42,4 @@ public class Item
 
     [Header("StatusType")]
     public ItemDataStatus[] statusType;
-
-
-
-    public Item(string itemName, string description, ItemType itemType, Sprite icon, bool canStack, int maxStackAmount, ItemDataStatus[] statusType)
-    {
-        this.itemName = itemName;
-        this.description = description;
-        this.itemType = itemType;
-        this.icon = icon;
-        this.canStack = canStack;
-        MaxStackAmount = maxStackAmount;
-        this.statusType = statusType;
-    }
 }
