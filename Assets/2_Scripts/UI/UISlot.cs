@@ -19,7 +19,7 @@ public class UISlot : MonoBehaviour
 
     private void Awake()
     {
-        inventory = GetComponentInParent<UIInventory>();
+        inventory = GetComponentInParent<UIInventory>(true);
     }
 
 

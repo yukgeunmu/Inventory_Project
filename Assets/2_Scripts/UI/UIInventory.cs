@@ -15,13 +15,12 @@ public class UIInventory : MonoBehaviour
     public int totalSlot;
     public Button backButton;
 
-    //[Header("Selected Item")]
-    //private ItemSlot selectedItem;
-    //private int selectedItemIndex;
-    //public TextMeshProUGUI selectedItemName;
-    //public TextMeshProUGUI selectedDescription;
-    //public TextMeshProUGUI selectedStatName;
-    //public TextMeshProUGUI selectedStatValue;
+    [Header("Itme Infomation")]
+    public GameObject IteminfoWindow;
+    public TextMeshProUGUI selectedItemName;
+    public TextMeshProUGUI selectedDescription;
+    public TextMeshProUGUI selectedStat;
+
 
 
     private void Start()
@@ -67,4 +66,5 @@ public class UIInventory : MonoBehaviour
         }
 
     }
+
 }
