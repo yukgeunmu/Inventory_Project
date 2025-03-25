@@ -18,8 +18,7 @@
 ┃ ┣ UISlot.cs
 ┃ ┣ UIStatus.cs
 ┣ Character.cs
-┣ GameManager.cs
-┗ UI.meta
+┗ GameManager.cs
 ```
 - 위와 같이 Scripts 폴더 안에 스크립트를 작성했습니다.
 
