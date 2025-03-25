@@ -40,4 +40,12 @@ public class UIStatus : MonoBehaviour
         criticalValueText.text = _criticalValue.ToString();
     }
 
+    public void UpdateStatus(Character player)
+    {
+        SetAttackDamage(player.attackdamage);
+        SetDefence(player.defence);
+        SetHealth(player.health);
+        SetCritical(player.critical);
+    }
+
 }

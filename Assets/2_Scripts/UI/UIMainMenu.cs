@@ -69,4 +69,13 @@ public class UIMainMenu : MonoBehaviour
         UIManager.Instance.UIInventory.gameObject.SetActive(true);
     }
 
+    public void UpdateMainMenu(Character player)
+    {
+        SetJobType(player.jobType);
+        SetName(player.name);
+        SetLevel(player.level);
+        SetExp(player.exp, player.maxExp);
+        SetGold(player.gold);
+    }
+
 }

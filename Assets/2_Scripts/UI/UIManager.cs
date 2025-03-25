@@ -51,4 +51,12 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.uIManager = this;
     }
 
+
+    public void UpdateUI(Character player)
+    {
+        uIMainMenu.UpdateMainMenu(player);
+        uIStatus.UpdateStatus(player);
+        uIInventory.SetInventory(player.inventroy);
+    }
+
 }

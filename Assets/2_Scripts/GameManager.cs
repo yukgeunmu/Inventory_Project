@@ -46,16 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void SetData()
     {
-        UIManager.Instance.UIMainMenu.SetJobType(player.jobType);
-        UIManager.Instance.UIMainMenu.SetName(player.characterName);
-        UIManager.Instance.UIMainMenu.SetLevel(player.level);
-        UIManager.Instance.UIMainMenu.SetExp(player.exp, player.maxExp);
-        UIManager.Instance.UIMainMenu.SetGold(player.gold);
-        UIManager.Instance.UIStatus.SetAttackDamage(player.attackdamage);
-        UIManager.Instance.UIStatus.SetDefence(player.defence);
-        UIManager.Instance.UIStatus.SetHealth(player.health);
-        UIManager.Instance.UIStatus.SetCritical(player.critical);
-        UIManager.Instance.UIInventory.SetInventory(player.inventroy);
+        UIManager.Instance.UpdateUI(player);
 
     }
 
