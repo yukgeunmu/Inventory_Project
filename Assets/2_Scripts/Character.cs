@@ -23,7 +23,8 @@ public class Character : MonoBehaviour
     public float health;
     public float critical;
     public int gold;
-    public UISlot equipItem;
+    public UISlot WeaponItem;
+    public UISlot AmorItem;
     public List<Item> inventroy;
 
     private void Awake()

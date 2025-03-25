@@ -794,7 +794,8 @@ MonoBehaviour:
   health: 10
   critical: 5
   gold: 1000
-  equipItem: {fileID: 0}
+  WeaponItem: {fileID: 0}
+  AmorItem: {fileID: 0}
   inventroy:
   - {fileID: 11400000, guid: 2ced9f97e11ed7044b71298e7bfbba3c, type: 2}
   - {fileID: 11400000, guid: a3d0a0afbd5e10141afc5ededadd5901, type: 2}
@@ -807,6 +808,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ee1965b6c22e8684aa82783e214bd0d8, type: 2}
   - {fileID: 11400000, guid: ee1965b6c22e8684aa82783e214bd0d8, type: 2}
   - {fileID: 11400000, guid: ee1965b6c22e8684aa82783e214bd0d8, type: 2}
+  - {fileID: 11400000, guid: b3b30d5ff0fd7f2419304f39ecbac6c7, type: 2}
+  - {fileID: 11400000, guid: b3b30d5ff0fd7f2419304f39ecbac6c7, type: 2}
 --- !u!1 &184719927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2458,7 +2461,7 @@ MonoBehaviour:
   slotPanel: {fileID: 1085569014}
   slotText: {fileID: 1489458610}
   currentSlot: 0
-  totalSlot: 20
+  totalSlot: 30
   backButton: {fileID: 248834519}
   IteminfoWindow: {fileID: 498280473}
   selectedItemName: {fileID: 1270195364}

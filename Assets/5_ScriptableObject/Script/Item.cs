@@ -19,6 +19,12 @@ public enum StatusType
 
 }
 
+public enum EquipableType
+{
+    WeaponItem,
+    AmorItem,
+    None
+}
 
 [System.Serializable]
 public class ItemDataStatus
@@ -43,4 +49,7 @@ public class Item : ScriptableObject
 
     [Header("StatusType")]
     public ItemDataStatus[] statusType;
+
+    public EquipableType equipableType;
+
 }

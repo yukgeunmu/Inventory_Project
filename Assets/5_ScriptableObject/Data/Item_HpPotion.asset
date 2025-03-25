@@ -21,3 +21,4 @@ MonoBehaviour:
   statusType:
   - type: 3
     value: 10
+  equipableType: 2

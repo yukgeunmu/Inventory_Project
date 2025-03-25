@@ -57,26 +57,8 @@ public class UISlot : MonoBehaviour
 
         if (item.itemType ==  ItemType.Equipable)
         {
-            if (GameManager.Instance.player.equipItem == null)
-            {
-                SelfEquip();
-            }
-            else if (GameManager.Instance.player.equipItem.index != index)
-            {
-                GameManager.Instance.player.equipItem.outline.enabled = false;
-                GameManager.Instance.player.equipItem.equipText.SetActive(false);
-                GameManager.Instance.player.UnEquip(GameManager.Instance.player.equipItem.item);
-
-                SelfEquip();
-
-            }
-            else
-            {
-                outline.enabled = false;
-                equipText.gameObject.SetActive(false);
-                GameManager.Instance.player.equipItem = null;
-                GameManager.Instance.player.UnEquip(item);
-            }          
+            SetEquipableType(ref GameManager.Instance.player.WeaponItem, EquipableType.WeaponItem);
+            SetEquipableType(ref GameManager.Instance.player.AmorItem, EquipableType.AmorItem);
         }
         else if(item.itemType == ItemType.Consumalbe)
         {
@@ -92,13 +74,37 @@ public class UISlot : MonoBehaviour
         }
     }
 
-    public void SelfEquip()
+    public void SelfEquip(ref UISlot currentItemSlot)
     {
         outline.enabled = true;
         equipText.gameObject.SetActive(true);
-        GameManager.Instance.player.equipItem = inventory.itemSlotList[index];
+        currentItemSlot = inventory.itemSlotList[index];
         GameManager.Instance.player.Equip(item);
 
+    }
+
+    public void SetEquipableType(ref UISlot currentItemSlot,EquipableType equipableType)
+    {
+        if (item.equipableType != equipableType) return;
+
+        if (currentItemSlot == null)
+        {
+            SelfEquip(ref currentItemSlot);
+        }
+        else if (currentItemSlot.index != index)
+        {
+            currentItemSlot.outline.enabled = false;
+            currentItemSlot.equipText.SetActive(false);
+            GameManager.Instance.player.UnEquip(currentItemSlot.item);
+            SelfEquip(ref currentItemSlot);
+        }
+        else
+        {
+            outline.enabled = false;
+            equipText.gameObject.SetActive(false);
+            currentItemSlot = null;
+            GameManager.Instance.player.UnEquip(item);
+        }
     }
 
 }
