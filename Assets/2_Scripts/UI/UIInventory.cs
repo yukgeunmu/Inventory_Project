@@ -29,7 +29,7 @@ public class UIInventory : MonoBehaviour
     }
 
 
-    public void InitInventroyUI()
+    public void InitInventoryUI()
     {
         slotText.text = $"{currentSlot} / {totalSlot}";
 
@@ -52,6 +52,8 @@ public class UIInventory : MonoBehaviour
                 if(slot.item == null)
                 {
                     slot.SetItem(addItem);
+                    currentSlot += 1;
+                    slotText.text = $"{currentSlot} / {totalSlot}";
                     break;
                 }
                 else

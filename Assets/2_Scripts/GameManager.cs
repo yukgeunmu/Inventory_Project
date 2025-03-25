@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        uIManager.UIInventory.InitInventroyUI();
+        uIManager.UIInventory.InitInventoryUI();
         SetData();
     }
 
