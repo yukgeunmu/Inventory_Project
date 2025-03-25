@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328e70644054d4449abb1c542474da6f, type: 3}
   m_Name: Item_Sword
   m_EditorClassIdentifier: 
-  itemName: Iron Sword
-  description: sword made of steel
+  itemName: "\uAC15\uCCA0\uAC80"
+  description: "\uAC15\uCCA0\uB85C \uB9CC\uB4E4\uC5B4\uC9C4 \uAC80"
   itemType: 1
   icon: {fileID: 21300000, guid: 8f28955d92038974a9b04aafaeea79b0, type: 3}
   canStack: 0
