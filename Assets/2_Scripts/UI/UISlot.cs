@@ -81,12 +81,14 @@ public class UISlot : MonoBehaviour
         else if(item.itemType == ItemType.Consumalbe)
         {
             GameManager.Instance.player.Using(item);
+            quantity--;
 
-            if(quantity <= 0)
+            if (quantity <= 0)
             {
                 RefreshUI();
             }
-            else quantity--;
+
+            quantityText.text = quantity.ToString();
         }
     }
 
