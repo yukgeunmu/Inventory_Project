@@ -250,34 +250,27 @@ public class UISlot : MonoBehaviour
 
         if (item.itemType ==  ItemType.Equipable)
         {
-            if (GameManager.Instance.player.equipItem == null)
-            {
-                SelfEquip();
-            }
-            else if (GameManager.Instance.player.equipItem.index != index)
-            {
-                GameManager.Instance.player.equipItem.outline.enabled = false;
-                GameManager.Instance.player.equipItem.equipText.SetActive(false);
-                GameManager.Instance.player.UnEquip(GameManager.Instance.player.equipItem.item);
+            SetEquipableType(ref GameManager.Instance.player.WeaponItem, EquipableType.WeaponItem);
+            SetEquipableType(ref GameManager.Instance.player.AmorItem, EquipableType.AmorItem);
+        }
+        else if(item.itemType == ItemType.Consumalbe)
+        {
+            GameManager.Instance.player.Using(item);
+            quantity--;
 
-                SelfEquip();
-
-            }
-            else
+            if (quantity <= 0)
             {
-                outline.enabled = false;
-                equipText.gameObject.SetActive(false);
-                GameManager.Instance.player.equipItem = null;
-                GameManager.Instance.player.UnEquip(item);
-            }          
+                RefreshUI();
+            }
+
+            quantityText.text = quantity.ToString();
         }
     }
-
 }
 ```
 - 위와 같이 UISlot 스크립트에서 아이템 슬롯을 클릭 시 장착 아이템이 장착되는 OnEquip 매서드를 구현했습니다.
 - 장착이 안된 아이템을 누르면 장착이 되고 장착 된 아이템을 한번 더 누르면 장착이 해제하도록 구현했습니다.
-- 그리고 장착 아이템을 하나만 장착 할 수 있도록 구현하였습니다.
+- 그리고 무기와 방어구를 각각 하나씩만 장착하도록 구현하였습니다.
 
   -------------------------------------------------------------------------------------------------
 ## STEP8. Status에 아이템 정보 반영
@@ -341,4 +334,65 @@ public class Character : MonoBehaviour
 
 - Character 스크립트에서 장착이 되면 Status에 반영 하는 Equip 매서드를 작성해주었습니다.
 - 장착이 해제되면 UnEquip 매서드를 호출해 Status가 이전 값으로 돌아가도록 구현하였습니다.
+------------------------------------------------------------------------------------------------------
+
+## 추가 구현 사항
+## 물약 아이템 사용 구현
+```C#
+public class Character : MonoBehaviour
+{
+    public void Using(Item item)
+    {
+        for (int i = 0; i < item.statusType.Length; i++)
+        {
+            switch(item.statusType[i].type)
+            {
+                case StatusType.Health:
+                    health += item.statusType[i].value;
+                    health = Mathf.Clamp(health, 0f, 100f);
+                    UIManager.Instance.UIStatus.SetHealth(health);
+                    break;
+                case StatusType.Exp:
+                    exp += item.statusType[i].value;
+                    UpdateLevel();
+                    UIManager.Instance.UIMainMenu.SetExp(exp,maxExp);
+                    break;
+            }
+        }
+
+    }
+}
+```
+- 체력물약을 먹으면 체력이 오르도록 구현하였습니다.
+- 겅험치 물약을 먹으면 레벨업을 하고 경험치가 오르도록 구현하였습니다.
+------------------------------------------------------------------------------------------------------
+## 아이템 정보창 구현
+
+![image](https://github.com/user-attachments/assets/e7772303-fd2a-4715-8e1c-07fdea468c48)
+
+- 위와 같이 마우스 커서를 아이템 슬롯에 가져가면 아이템 정보창이 뜨도록 구현하였습니다.
+  
+```C#
+public class ItemTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
+    public UISlot slot;
+
+    private void Awake()
+    {
+        slot = GetComponent<UISlot>();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        ShowItemInfo();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        CloseItemInfo();
+    }
+}
+```
+- 유니티에 있는  IPointerEnterHandler, IPointerExitHandler 인터페이스를 활용하여 구현하였습니다.
+
 
