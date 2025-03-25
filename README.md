@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour
     }
 }
 ```
-- GameManager에서 player를 정보를 받아와 UIManager에서 UpdataUI를 호출해서 UI를 업데이트 해주는 SetData 매서드를 위와 같이 작숭해주었습니다.
+- GameManager에서 player를 정보를 받아와 UIManager에서 UpdataUI를 호출해서 UI를 업데이트 해주는 SetData 매서드를 위와 같이 작성성해주었습니다.
 ```C#
 public class UIManager : MonoBehaviour
 {
@@ -335,7 +335,7 @@ public class Character : MonoBehaviour
 - 장착이 해제되면 UnEquip 매서드를 호출해 Status가 이전 값으로 돌아가도록 구현하였습니다.
 ------------------------------------------------------------------------------------------------------
 
-## 추가 구현 사항
+# 추가 구현 사항
 ## 물약 아이템 사용 구현
 ```C#
 public class Character : MonoBehaviour
