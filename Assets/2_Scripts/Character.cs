@@ -96,11 +96,24 @@ public class Character : MonoBehaviour
                     break;
                 case StatusType.Exp:
                     exp += item.statusType[i].value;
+                    UpdateLevel();
                     UIManager.Instance.UIMainMenu.SetExp(exp,maxExp);
                     break;
             }
         }
 
+    }
+
+    public void UpdateLevel()
+    {
+        if (exp >= maxExp)
+        {
+            float remainExp = exp - maxExp;
+            exp = remainExp;
+            maxExp *= 2f;
+            level += 1;
+            UIManager.Instance.UIMainMenu.SetLevel(level);
+        }
     }
 
 }

@@ -20,4 +20,4 @@ MonoBehaviour:
   MaxStackAmount: 10
   statusType:
   - type: 4
-    value: 5
+    value: 15
