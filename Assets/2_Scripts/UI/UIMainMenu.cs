@@ -72,7 +72,7 @@ public class UIMainMenu : MonoBehaviour
     public void UpdateMainMenu(Character player)
     {
         SetJobType(player.jobType);
-        SetName(player.name);
+        SetName(player.characterName);
         SetLevel(player.level);
         SetExp(player.exp, player.maxExp);
         SetGold(player.gold);
